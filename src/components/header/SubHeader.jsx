@@ -32,18 +32,10 @@ export default function SubHeader() {
 
     return (
         <div
-            className={`
-        sticky top-16 lg:top-20 z-40 
-        bg-background/95 backdrop-blur border-b border-border/40 shadow-md
-        transition-all duration-300
-        ${isScrolled ? 'py-3' : 'py-4'}
-      `}
-        >
+            className={`sticky top-15 z-40 bg-background/95 backdrop-blur border-b border-border/40 shadow-md transition-all duration-300 ${isScrolled ? 'py-3' : 'py-4'}`} >
             <div className="container mx-auto">
-                {/* Force horizontal scroll */}
                 <div className="overflow-x-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
 
-                    {/* ONE ROW ONLY — Fixed width per item */}
                     <div className="flex">
                         {categories.map((cat, i) => {
                             const Icon = cat.icon;
@@ -57,14 +49,11 @@ export default function SubHeader() {
                                         to={cat.path}
                                         className="flex flex-col items-center group"
                                     >
-                                        {/* Icon — disappears on scroll */}
-                                        <div className={`transition-all duration-300 overflow-hidden ${isScrolled ? 'h-0 opacity-0 mb-0' : 'h-16 mb-3'}`} >
+                                        <div className={`transition-all duration-300 overflow-hidden ${isScrolled ? 'h-0 opacity-0 mb-0' : 'h-16'}`} >
                                             <div className="p-4 bg-primary/10 rounded-2xl group-hover:bg-primary/20">
-                                                <Icon size={28} className="text-primary group-hover:scale-110 transition-all " />
+                                                <Icon size={20} className="text-primary group-hover:scale-110 transition-all " />
                                             </div>
                                         </div>
-
-                                        {/* Text */}
                                         <span className="text-xs font-semibold text-foreground/80 group-hover:text-primary text-center leading-tight">
                                             {cat.name}
                                         </span>
