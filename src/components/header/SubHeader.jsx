@@ -1,17 +1,8 @@
+// src/components/SubHeader.jsx
 import React, { useState, useEffect } from 'react';
 import {
-    Home,
-    Sun,
-    Music,
-    BookOpen,
-    Calendar,
-    Sparkles,
-    Heart,
-    Church,
-    Clock,
-    Gift,
-    Users,
-    Bell,
+    Home, Sun, Music, BookOpen, Calendar,
+    Sparkles, Heart, Church, Clock, Gift, Users, Bell
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
@@ -41,41 +32,48 @@ export default function SubHeader() {
 
     return (
         <div
-            className={`sticky top-16 lg:top-20 z-40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80 border-b border-border/40 shadow-md transition-all duration-300 ease-out ${isScrolled ? 'py-2' : 'py-4'}`} >
-            <div className="container mx-auto px-5">
+            className={`
+        sticky top-16 lg:top-20 z-40 
+        bg-background/95 backdrop-blur border-b border-border/40 shadow-md
+        transition-all duration-300
+        ${isScrolled ? 'py-3' : 'py-4'}
+      `}
+        >
+            <div className="container mx-auto">
+                {/* Force horizontal scroll */}
                 <div className="overflow-x-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
-                    <div className="flex gap-4 md:gap-6 lg:gap-8 min-w-full">
+
+                    {/* ONE ROW ONLY — Fixed width per item */}
+                    <div className="flex">
                         {categories.map((cat, i) => {
                             const Icon = cat.icon;
 
                             return (
-                                <Link
+                                <div
                                     key={i}
-                                    to={cat.path}
-                                    className="flex flex-col items-center group flex-shrink-0 transition-all duration-300 basis-1/4 md:basis-1/6 lg:basis-1/6 max-w-[120px]">
-                                    {/* Icon wrapper – fixed height keeps layout stable */}
-                                    <div
-                                        className={`flex flex-col items-center justify-center transition-all duration-300`}
-                                        style={{ height: isScrolled ? 0 : 72, overflow: 'hidden' }}
+                                    className="flex-shrink-0 w-1/4 md:w-1/6 px-3"
+                                >
+                                    <Link
+                                        to={cat.path}
+                                        className="flex flex-col items-center group"
                                     >
-                                        <div className="p-4 bg-primary/10 rounded-2xl group-hover:bg-primary/20 group-hover:scale-110 transition-all">
-                                            <Icon size={28} className="text-primary" />
+                                        {/* Icon — disappears on scroll */}
+                                        <div className={`transition-all duration-300 overflow-hidden ${isScrolled ? 'h-0 opacity-0 mb-0' : 'h-16 mb-3'}`} >
+                                            <div className="p-4 bg-primary/10 rounded-2xl group-hover:bg-primary/20">
+                                                <Icon size={28} className="text-primary group-hover:scale-110 transition-all " />
+                                            </div>
                                         </div>
-                                    </div>
 
-                                    {/* Text – stays in place, visually moves into icon space */}
-                                    <span
-                                        className={`
-                    font-semibold text-foreground/80 group-hover:text-primary
-                    transition-all duration-300 whitespace-nowrap text-center text-xs
-                  `}
-                                    >
-                                        {cat.name}
-                                    </span>
-                                </Link>
+                                        {/* Text */}
+                                        <span className="text-xs font-semibold text-foreground/80 group-hover:text-primary text-center leading-tight">
+                                            {cat.name}
+                                        </span>
+                                    </Link>
+                                </div>
                             );
                         })}
                     </div>
+
                 </div>
             </div>
         </div>
