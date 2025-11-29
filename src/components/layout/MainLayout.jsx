@@ -6,7 +6,7 @@ import SubHeader from '../header/SubHeader';
 
 export default function MainLayout() {
     return (
-        <div>
+        <div className=''>
             <Header />
             <SubHeader />
             <main>

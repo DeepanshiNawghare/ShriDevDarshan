@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
     Search,
     Menu,
@@ -11,22 +11,18 @@ import {
     ShoppingBag,
     Share2,
     Settings,
-    ChevronDown,
     LogIn,
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import logo from '../../assets/img/logo.png';
-
 import playstore from '../../assets/img/playstore.svg';
 import applestore from '../../assets/img/applestore.svg';
 
+import { Button, Input, IconButton, Dropdown } from '../ui';
 
 export default function Header() {
     const [isOffcanvasOpen, setIsOffcanvasOpen] = useState(false);
-    const [isLangOpen, setIsLangOpen] = useState(false);
     const [selectedLang, setSelectedLang] = useState('English');
-
-    const langDropdownRef = useRef(null);
 
     const languages = ['English', 'हिन्दी', 'ગુજરાતી', 'मराठी'];
 
@@ -38,17 +34,6 @@ export default function Header() {
         { name: 'Share App', path: '/share', icon: Share2 },
         { name: 'Settings', path: '/settings', icon: Settings },
     ];
-
-    // Close language dropdown on outside click
-    useEffect(() => {
-        const handleClickOutside = (e) => {
-            if (langDropdownRef.current && !langDropdownRef.current.contains(e.target)) {
-                setIsLangOpen(false);
-            }
-        };
-        document.addEventListener('mousedown', handleClickOutside);
-        return () => document.removeEventListener('mousedown', handleClickOutside);
-    }, []);
 
     // Stop background scroll when off-canvas is open
     useEffect(() => {
@@ -66,7 +51,7 @@ export default function Header() {
         <>
             {/* Main Header */}
             <header className="sticky top-0 z-50 bg-background/95 backdrop-blur border-b border-border/40">
-                <div className="container mx-auto px-5">
+                <div className="container px-5">
                     <div className="flex items-center justify-between h-15">
 
                         {/* Logo + Name */}
@@ -81,62 +66,43 @@ export default function Header() {
 
                         {/* Desktop Search */}
                         <div className="hidden lg:flex flex-1 max-w-2xl mx-10">
-                            <div className="relative w-full">
-                                <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground" size={15} />
-                                <input
-                                    type="text"
-                                    placeholder="Search temples, poojas or cities..."
-                                    className="w-full pl-10 pr-6 py-2 text-xs bg-muted/60 border border-border rounded-full focus:outline-none focus:ring-2 focus:ring-primary/50"
-                                />
-                            </div>
+                            <Input
+                                type="text"
+                                placeholder="Search temples, poojas or cities..."
+                                icon={Search}
+                                size="sm"
+                                shape="pill"
+                            />
                         </div>
 
                         {/* Desktop Buttons */}
                         <div className="hidden lg:flex items-center gap-6">
-                            <div className="relative" ref={langDropdownRef}>
-                                <button
-                                    onClick={() => setIsLangOpen(!isLangOpen)}
-                                    className="flex items-center gap-2 px-5 py-2 bg-muted/60 hover:bg-muted rounded-xl transition text-xs font-medium"
-                                >
-                                    <Globe size={18} className="text-primary" />
-                                    <span>{selectedLang}</span>
-                                    <ChevronDown size={15} className={`transition ${isLangOpen ? 'rotate-180' : ''}`} />
-                                </button>
+                            <Dropdown
+                                options={languages}
+                                value={selectedLang}
+                                onChange={setSelectedLang}
+                                icon={Globe}
+                            />
 
-                                {isLangOpen && (
-                                    <div className="absolute top-full mt-2 right-0 w-48 bg-card border border-border rounded-xl shadow-2xl z-50">
-                                        {languages.map((lang) => (
-                                            <button
-                                                key={lang}
-                                                onClick={() => {
-                                                    setSelectedLang(lang);
-                                                    setIsLangOpen(false);
-                                                }}
-                                                className="w-full text-left px-5 py-2 hover:bg-primary/10 transition font-medium text-sm"
-                                            >
-                                                {lang}
-                                            </button>
-                                        ))}
-                                    </div>
-                                )}
-                            </div>
-
-                            <Link
+                            <Button
                                 to="/book-pooja"
-                                className="bg-gradient-to-r from-primary to-secondary text-white font-bold text-xs px-5 py-2 rounded-full shadow-lg hover:scale-102 transition flex items-center gap-2"
+                                variant="primary"
+                                size="sm"
+                                icon={BookOpen}
                             >
-                                <BookOpen size={15} />
                                 Book Pooja
-                            </Link>
+                            </Button>
                         </div>
 
                         {/* Menu Button – Works on ALL devices */}
-                        <button
+                        <IconButton
+                            icon={Menu}
+                            variant="ghost"
+                            size="md"
+                            shape="rounded"
                             onClick={() => setIsOffcanvasOpen(true)}
-                            className="p-3 ml-5 hover:bg-muted/60 rounded-xl transition"
-                        >
-                            <Menu size={20} className="text-foreground" />
-                        </button>
+                            className="ml-5"
+                        />
                     </div>
                 </div>
             </header>
@@ -160,24 +126,24 @@ export default function Header() {
                                     Shri Dev Darshan
                                 </h2>
                             </div>
-                            <button
+                            <IconButton
+                                icon={X}
+                                variant="muted"
+                                size="md"
+                                shape="rounded"
                                 onClick={() => setIsOffcanvasOpen(false)}
-                                className="p-3 bg-muted/60 hover:bg-muted rounded-xl"
-                            >
-                                <X size={20} />
-                            </button>
+                            />
                         </div>
 
                         {/* Search */}
                         <div className="p-4 border-b border-border/30">
-                            <div className="relative">
-                                <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground" size={20} />
-                                <input
-                                    type="text"
-                                    placeholder="Search anything..."
-                                    className="w-full pl-12 pr-6 py-2 bg-muted/60 border border-border rounded-2xl focus:ring-2 focus:ring-primary/50 outline-none text-base"
-                                />
-                            </div>
+                            <Input
+                                type="text"
+                                placeholder="Search anything..."
+                                icon={Search}
+                                size="lg"
+                                shape="rounded"
+                            />
                         </div>
 
                         {/* Links */}
@@ -198,9 +164,8 @@ export default function Header() {
                                     </Link>
                                 );
                             })}
-
-
                         </div>
+
                         <div className="p-4 border-b border-border/30">
                             <div className="relative">
                                 <div>
@@ -224,15 +189,17 @@ export default function Header() {
                                         </a>
                                     </div>
                                 </div>
-                                <Link
+                                <Button
                                     to="/book-pooja"
+                                    variant="primary"
+                                    size="lg"
+                                    icon={LogIn}
+                                    fullWidth
                                     onClick={() => setIsOffcanvasOpen(false)}
-                                    className="mt-6 flex justify-center items-center gap-3 bg-gradient-to-r from-primary to-secondary text-white font-medium text-base p-3 rounded-2xl shadow-xl"
+                                    className="mt-6"
                                 >
-                                    <LogIn size={18} />
                                     Login
-                                </Link>
-
+                                </Button>
                             </div>
                         </div>
                     </div>

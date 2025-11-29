@@ -5,6 +5,8 @@ import logo from '../../assets/img/logo.png';
 import playstore from '../../assets/img/playstore.svg';
 import applestore from '../../assets/img/applestore.svg';
 
+import { SocialIcon } from '../ui';
+
 export default function Footer() {
     const quickLinks = [
         { name: 'Home', path: '/' },
@@ -20,6 +22,12 @@ export default function Footer() {
         { name: 'Privacy Policy', path: '/privacy-policy' },
         { name: 'Terms & Conditions', path: '/terms' },
         { name: 'Refund Policy', path: '/refund-policy' },
+    ];
+
+    const socialLinks = [
+        { platform: 'facebook', username: 'shridevdarshan', icon: Facebook },
+        { platform: 'instagram', username: 'shridevdarshan', icon: Instagram },
+        { platform: 'twitter', username: 'shridevdarshan', icon: Twitter },
     ];
 
     return (
@@ -38,18 +46,14 @@ export default function Footer() {
 
                         {/* Social Icons */}
                         <div className="flex gap-4">
-                            <a href="https://facebook.com/shridevdarshan" target="_blank" rel="noopener noreferrer"
-                                className="p-3 bg-background/10 rounded-full hover:bg-primary hover:text-foreground transition-all duration-300 transform hover:scale-110">
-                                <Facebook size={20} />
-                            </a>
-                            <a href="https://instagram.com/shridevdarshan" target="_blank" rel="noopener noreferrer"
-                                className="p-3 bg-background/10 rounded-full hover:bg-primary hover:text-foreground transition-all duration-300 transform hover:scale-110">
-                                <Instagram size={20} />
-                            </a>
-                            <a href="https://twitter.com/shridevdarshan" target="_blank" rel="noopener noreferrer"
-                                className="p-3 bg-background/10 rounded-full hover:bg-primary hover:text-foreground transition-all duration-300 transform hover:scale-110">
-                                <Twitter size={20} />
-                            </a>
+                            {socialLinks.map((social) => (
+                                <SocialIcon
+                                    key={social.platform}
+                                    platform={social.platform}
+                                    username={social.username}
+                                    icon={social.icon}
+                                />
+                            ))}
                         </div>
                     </div>
 

@@ -6,6 +6,8 @@ import {
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
+import { IconButton } from '../ui';
+
 export default function SubHeader() {
     const [isScrolled, setIsScrolled] = useState(false);
 
@@ -32,8 +34,8 @@ export default function SubHeader() {
 
     return (
         <div
-            className={`sticky top-15 z-40 bg-background/95 backdrop-blur border-b border-border/40 shadow-md transition-all duration-300 ${isScrolled ? 'py-3' : 'py-4'}`} >
-            <div className="container mx-auto">
+            className={`relative sticky top-15 z-40 bg-background/95 backdrop-blur shadow-md transition-all duration-300 ${isScrolled ? 'py-3' : 'py-4'}`} >
+            <div className="container px-5">
                 <div className="overflow-x-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
 
                     <div className="flex">
@@ -50,9 +52,14 @@ export default function SubHeader() {
                                         className="flex flex-col items-center group"
                                     >
                                         <div className={`transition-all duration-300 overflow-hidden ${isScrolled ? 'h-0 opacity-0 mb-0' : 'h-16'}`} >
-                                            <div className="p-4 bg-primary/10 rounded-2xl group-hover:bg-primary/20">
-                                                <Icon size={20} className="text-primary group-hover:scale-110 transition-all " />
-                                            </div>
+                                            <IconButton
+                                                icon={Icon}
+                                                variant="primary"
+                                                size="lg"
+                                                shape="rounded"
+                                                className="group-hover:bg-primary/20"
+                                                as="div"
+                                            />
                                         </div>
                                         <span className="text-xs font-semibold text-foreground/80 group-hover:text-primary text-center leading-tight">
                                             {cat.name}
@@ -65,6 +72,8 @@ export default function SubHeader() {
 
                 </div>
             </div>
+            {/* Gradient Border Bottom */}
+            <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-primary to-secondary" />
         </div>
     );
 }
