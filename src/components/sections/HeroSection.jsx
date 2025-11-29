@@ -1,5 +1,5 @@
 // HeroSection.jsx
-import React from 'react';
+import React, { useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Autoplay } from 'swiper/modules';
 import { BookOpen, Eye, ChevronLeft, ChevronRight } from 'lucide-react';
@@ -9,6 +9,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
 import { Button, Card, Badge, IconButton } from '../ui';
+import PujaOffcanvas from './PujaOffcanvas';
 
 const poojaSlides = [
     { img: '/img/puja/mangalnath.png', title: 'Mangal Bhat Pooja', sub: 'Mangalik Dosha' },
@@ -23,6 +24,8 @@ const darshanSlides = [
 ];
 
 export default function HeroSection() {
+    const [isPujaOffcanvasOpen, setIsPujaOffcanvasOpen] = useState(false);
+
     return (
         <section className="container mx-auto px-5 py-6">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
@@ -119,7 +122,7 @@ export default function HeroSection() {
                             </Card.Header>
 
                             <Button
-                                to="/book-pooja"
+                                onClick={() => setIsPujaOffcanvasOpen(true)}
                                 variant="primary"
                                 size="md"
                                 icon={BookOpen}
@@ -203,6 +206,12 @@ export default function HeroSection() {
                 </div>
 
             </div>
+
+            {/* Puja Offcanvas */}
+            <PujaOffcanvas
+                isOpen={isPujaOffcanvasOpen}
+                onClose={() => setIsPujaOffcanvasOpen(false)}
+            />
         </section>
     );
 }

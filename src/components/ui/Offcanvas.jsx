@@ -89,7 +89,7 @@ export default function Offcanvas({
             {/* Backdrop */}
             <div
                 className={`
-                    fixed inset-0 z-40 
+                    fixed inset-0 z-[100] 
                     transition-all duration-300 ease-in-out
                     ${isOpen ? 'visible' : 'invisible pointer-events-none'}
                     ${showBackdrop ? (isOpen ? 'bg-black/50 backdrop-blur-sm' : 'bg-transparent') : ''}
@@ -102,7 +102,7 @@ export default function Offcanvas({
             {/* Offcanvas Panel */}
             <div
                 className={`
-                    fixed z-50
+                    fixed z-[110]
                     ${positionConfig.panel}
                     ${isOpen ? positionConfig.translate.open : positionConfig.translate.closed}
                     ${variants[variant] || variants.default}
