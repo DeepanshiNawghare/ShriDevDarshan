@@ -1,7 +1,7 @@
 // src/components/SubHeader.jsx
 import React, { useState, useEffect } from 'react';
 import {
-    Home, Sun, Music, BookOpen, Calendar,
+    Home, Sun, Music, TicketCheck, Calendar,
     Sparkles, Heart, Church, Clock, Gift, Users, Bell
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -23,7 +23,7 @@ export default function SubHeader() {
         { name: 'Live Darshan', icon: Home, path: '/live-darshan' },
         { name: 'Horoscope', icon: Sun, path: '/horoscope' },
         { name: 'Aarti & Chalisa', icon: Music, path: '/aarti-chalisa' },
-        { name: 'Book Puja', icon: BookOpen, action: () => setIsPujaOffcanvasOpen(true) },
+        { name: 'Book Puja', icon: TicketCheck, action: () => setIsPujaOffcanvasOpen(true) },
         { name: 'Panchang', icon: Calendar, path: '/panchang' },
         { name: 'Festivals', icon: Sparkles, path: '/festivals' },
         { name: 'Temples', icon: Church, path: '/temples' },

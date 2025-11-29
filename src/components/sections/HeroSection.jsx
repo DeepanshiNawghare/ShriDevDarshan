@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Autoplay } from 'swiper/modules';
-import { BookOpen, Eye, ChevronLeft, ChevronRight } from 'lucide-react';
+import { TicketCheck, Eye, ChevronLeft, ChevronRight } from 'lucide-react';
 
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -125,7 +125,7 @@ export default function HeroSection() {
                                 onClick={() => setIsPujaOffcanvasOpen(true)}
                                 variant="primary"
                                 size="md"
-                                icon={BookOpen}
+                                icon={TicketCheck}
                                 fullWidth
                             >
                                 Book Pooja Now

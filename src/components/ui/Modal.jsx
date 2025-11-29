@@ -68,7 +68,7 @@ export default function Modal({
             {/* Backdrop + Centering Container */}
             <div
                 className={`
-                    fixed inset-0 z-50
+                    fixed inset-0 z-[200]
                     transition-all duration-300 ease-out
                     ${isOpen ? 'visible' : 'invisible pointer-events-none'}
                     ${showBackdrop ? (isOpen ? 'bg-black/60 backdrop-blur-sm' : 'bg-transparent') : ''}

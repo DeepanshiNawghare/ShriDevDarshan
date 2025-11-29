@@ -4,7 +4,6 @@ import {
     Menu,
     X,
     Globe,
-    BookOpen,
     Home,
     Sun,
     Music,
@@ -12,6 +11,7 @@ import {
     Share2,
     Settings,
     LogIn,
+    TicketCheck,
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import logo from '../../assets/img/logo.png';
@@ -30,7 +30,7 @@ export default function Header() {
 
     const navItems = [
         { name: 'Daily Darshan', path: '/daily-darshan', icon: Home },
-        { name: 'All Pujas', path: null, icon: BookOpen, action: () => { setIsOffcanvasOpen(false); setIsPujaOffcanvasOpen(true); } },
+        { name: 'All Pujas', path: null, icon: TicketCheck, action: () => { setIsOffcanvasOpen(false); setIsPujaOffcanvasOpen(true); } },
         { name: 'Horoscope', path: '/horoscope', icon: Sun },
         { name: 'Aarti & Chalisa', path: '/aarti-chalisa', icon: Music },
         { name: 'Shop', path: '/shop', icon: ShoppingBag },
@@ -79,7 +79,7 @@ export default function Header() {
                                 onClick={() => setIsPujaOffcanvasOpen(true)}
                                 variant="primary"
                                 size="sm"
-                                icon={BookOpen}
+                                icon={TicketCheck}
                             >
                                 Book Puja
                             </Button>
