@@ -6,4 +6,6 @@ export { default as Badge } from './Badge';
 export { default as IconButton } from './IconButton';
 export { default as SocialIcon } from './SocialIcon';
 export { default as Dropdown } from './Dropdown';
+export { default as Offcanvas } from './Offcanvas';
+export { default as Modal } from './Modal';
 
