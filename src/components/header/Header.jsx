@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
     Search,
     Menu,
@@ -6,6 +6,7 @@ import {
     Globe,
     Home,
     Sun,
+    Moon,
     Music,
     ShoppingBag,
     Share2,
@@ -19,14 +20,44 @@ import playstore from '../../assets/img/playstore.svg';
 import applestore from '../../assets/img/applestore.svg';
 
 import { Button, Input, IconButton, Dropdown, Offcanvas } from '../ui';
-import PujaOffcanvas from '../sections/PujaOffcanvas';
+import PujaOffcanvas from '../sections/puja/PujaOffcanvas';
 
 export default function Header() {
     const [isOffcanvasOpen, setIsOffcanvasOpen] = useState(false);
     const [isPujaOffcanvasOpen, setIsPujaOffcanvasOpen] = useState(false);
     const [selectedLang, setSelectedLang] = useState('English');
+    const [isDarkMode, setIsDarkMode] = useState(false);
 
     const languages = ['English', 'हिन्दी', 'ગુજરાતી', 'मराठी'];
+
+    // Initialize dark mode from localStorage or system preference
+    useEffect(() => {
+        const savedTheme = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        
+        if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+            setIsDarkMode(true);
+            document.documentElement.classList.add('dark');
+        } else {
+            setIsDarkMode(false);
+            document.documentElement.classList.remove('dark');
+        }
+    }, []);
+
+    // Toggle dark mode
+    const toggleDarkMode = () => {
+        setIsDarkMode(prev => {
+            const newMode = !prev;
+            if (newMode) {
+                document.documentElement.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+                localStorage.setItem('theme', 'light');
+            }
+            return newMode;
+        });
+    };
 
     const navItems = [
         { name: 'Daily Darshan', path: '/daily-darshan', icon: Home },
@@ -67,12 +98,22 @@ export default function Header() {
                         </div>
 
                         {/* Desktop Buttons */}
-                        <div className="hidden lg:flex items-center gap-6">
+                        <div className="hidden lg:flex items-center gap-4">
                             <Dropdown
                                 options={languages}
                                 value={selectedLang}
                                 onChange={setSelectedLang}
                                 icon={Globe}
+                            />
+
+                            {/* Dark Mode Toggle */}
+                            <IconButton
+                                icon={isDarkMode ? Sun : Moon}
+                                variant="ghost"
+                                size="md"
+                                shape="rounded"
+                                onClick={toggleDarkMode}
+                                aria-label={isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'}
                             />
 
                             <Button
@@ -122,8 +163,8 @@ export default function Header() {
                     />
                 </Offcanvas.Header>
 
-                {/* Search */}
-                <div className="px-6 py-4 border-b border-border/30">
+                {/* Search + Dark Mode Toggle */}
+                <div className="px-6 py-4 border-b border-border/30 space-y-4">
                     <Input
                         type="text"
                         placeholder="Search anything..."
@@ -131,6 +172,22 @@ export default function Header() {
                         size="lg"
                         shape="rounded"
                     />
+                    
+                    {/* Dark Mode Toggle for Mobile */}
+                    <button
+                        onClick={toggleDarkMode}
+                        className="flex items-center justify-between w-full p-3 rounded-xl bg-muted/50 hover:bg-muted transition"
+                    >
+                        <div className="flex items-center gap-3">
+                            <div className="p-2 bg-primary/10 rounded-xl">
+                                {isDarkMode ? <Sun size={18} className="text-primary" /> : <Moon size={18} className="text-primary" />}
+                            </div>
+                            <span className="font-medium">{isDarkMode ? 'Light Mode' : 'Dark Mode'}</span>
+                        </div>
+                        <div className={`w-12 h-6 rounded-full p-1 transition-colors ${isDarkMode ? 'bg-primary' : 'bg-muted-foreground/30'}`}>
+                            <div className={`w-4 h-4 rounded-full bg-white transition-transform ${isDarkMode ? 'translate-x-6' : 'translate-x-0'}`} />
+                        </div>
+                    </button>
                 </div>
 
                 {/* Navigation Links */}

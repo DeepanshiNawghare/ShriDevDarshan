@@ -28,8 +28,8 @@ export default function SocialIcon({
             rel="noopener noreferrer"
             aria-label={label}
             className={`
-                p-3 bg-background/10 rounded-full
-                hover:bg-primary hover:text-foreground
+                p-3 bg-white/10 rounded-full
+                hover:bg-primary hover:text-white
                 transition-all duration-300 transform hover:scale-110
                 ${className}
             `.trim().replace(/\s+/g, ' ')}

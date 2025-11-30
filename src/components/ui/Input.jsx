@@ -51,6 +51,7 @@ export default function Input({
                     ${variants[variant] || variants.default}
                     ${sizes[size] || sizes.md}
                     ${shapes[shape] || shapes.pill}
+                    text-foreground placeholder:text-muted-foreground
                     outline-none transition-all duration-200
                     ${className}
                 `.trim().replace(/\s+/g, ' ')}

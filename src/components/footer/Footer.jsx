@@ -31,7 +31,7 @@ export default function Footer() {
     ];
 
     return (
-        <footer className="bg-foreground text-background border-t border-border/30">
+        <footer className="bg-[#1b1510] dark:bg-[#0f0b08] text-[#faf6f1] border-t border-border/30">
             <div className="container mx-auto py-15 px-5">
 
                 {/* Main Footer Grid */}
@@ -40,7 +40,7 @@ export default function Footer() {
                     {/* Brand Section */}
                     <div className="space-y-6">
                         <img src={logo} alt="ShriDevDarshan" className="w-40 h-auto" />
-                        <p className="text-sm leading-relaxed text-background/80 max-w-xs">
+                        <p className="text-sm leading-relaxed text-[#faf6f1]/80 max-w-xs">
                             Experience divine live darshan, daily poojas, and spiritual connection with temples across India — anytime, anywhere.
                         </p>
 
@@ -65,7 +65,7 @@ export default function Footer() {
                                 <li key={link.name}>
                                     <Link
                                         to={link.path}
-                                        className="text-background/70 hover:text-primary transition-colors text-sm block group flex items-center gap-2"
+                                        className="text-[#faf6f1]/70 hover:text-primary transition-colors text-sm block group flex items-center gap-2"
                                     >
                                         <span className="w-1 h-1 bg-primary/60 rounded-full group-hover:bg-primary transition"></span>
                                         {link.name}
@@ -81,17 +81,17 @@ export default function Footer() {
                         <div className="space-y-5 text-sm">
                             <div className="flex items-center gap-3">
                                 <Phone size={18} className="text-primary" />
-                                <span className="text-background/70">+91 98765 43210</span>
+                                <span className="text-[#faf6f1]/70">+91 98765 43210</span>
                             </div>
                             <div className="flex items-center gap-3">
                                 <Mail size={18} className="text-primary" />
-                                <a href="mailto:support@shridevdarshan.com" className="text-background/70 hover:text-primary transition">
+                                <a href="mailto:support@shridevdarshan.com" className="text-[#faf6f1]/70 hover:text-primary transition">
                                     support@shridevdarshan.com
                                 </a>
                             </div>
                             <div className="flex items-start gap-3">
                                 <MapPin size={18} className="text-primary mt-0.5" />
-                                <span className="text-background/70 leading-tight">
+                                <span className="text-[#faf6f1]/70 leading-tight">
                                     123 Temple Street,<br />
                                     Mumbai, Maharashtra 400001
                                 </span>
@@ -133,7 +133,7 @@ export default function Footer() {
                                 <Link
                                     key={link.name}
                                     to={link.path}
-                                    className="text-background/60 hover:text-primary transition-all duration-300 group"
+                                    className="text-[#faf6f1]/60 hover:text-primary transition-all duration-300 group"
                                 >
                                     <span className="group-hover:underline underline-offset-4 font-medium">
                                         {link.name}
@@ -145,10 +145,10 @@ export default function Footer() {
                         {/* Om Symbol Divider */}
                         <div className="relative my-10">
                             <div className="absolute inset-0 flex items-center">
-                                <div className="w-full border-t border-background/20"></div>
+                                <div className="w-full border-t border-[#faf6f1]/20"></div>
                             </div>
                             <div className="relative flex justify-center">
-                                <span className="bg-foreground px-6 text-2xl text-primary/70 font-devanagari tracking-widest">
+                                <span className="bg-[#1b1510] dark:bg-[#0f0b08] px-6 text-2xl text-primary/70 font-devanagari tracking-widest">
                                     ॐ
                                 </span>
                             </div>
@@ -156,7 +156,7 @@ export default function Footer() {
 
                         {/* Copyright */}
                         <div className="text-center space-y-2">
-                            <p className="text-sm text-background/60">
+                            <p className="text-sm text-[#faf6f1]/60">
                                 © {new Date().getFullYear()} <span className="text-primary font-semibold">ShriDevDarshan</span>. All rights reserved.
                             </p>
                         </div>

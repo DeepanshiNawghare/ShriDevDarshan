@@ -7,7 +7,7 @@ import {
 import { Link } from 'react-router-dom';
 
 import { IconButton } from '../ui';
-import PujaOffcanvas from '../sections/PujaOffcanvas';
+import PujaOffcanvas from '../sections/puja/PujaOffcanvas';
 
 export default function SubHeader() {
     const [isScrolled, setIsScrolled] = useState(false);

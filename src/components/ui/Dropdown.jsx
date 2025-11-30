@@ -36,7 +36,7 @@ export default function Dropdown({
             {/* Trigger Button */}
             <button
                 onClick={() => setIsOpen(!isOpen)}
-                className="flex items-center gap-2 px-5 py-2 bg-muted/60 hover:bg-muted rounded-xl transition text-xs font-medium"
+                className="flex items-center gap-2 px-5 py-2 bg-muted/60 hover:bg-muted rounded-xl transition text-xs font-medium text-foreground"
             >
                 {Icon && <Icon size={18} className="text-primary" />}
                 <span>{displayValue}</span>
@@ -61,7 +61,7 @@ export default function Dropdown({
                                     w-full text-left px-5 py-2.5 
                                     hover:bg-primary/10 transition 
                                     font-medium text-sm
-                                    ${value === optionValue ? 'bg-primary/10 text-primary' : ''}
+                                    ${value === optionValue ? 'bg-primary/10 text-primary' : 'text-foreground'}
                                 `}
                             >
                                 {optionLabel}

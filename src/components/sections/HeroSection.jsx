@@ -9,7 +9,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
 import { Button, Card, Badge, IconButton } from '../ui';
-import PujaOffcanvas from './PujaOffcanvas';
+import PujaOffcanvas from './puja/PujaOffcanvas';
 
 const poojaSlides = [
     { img: '/img/puja/mangalnath.png', title: 'Mangal Bhat Pooja', sub: 'Mangalik Dosha' },

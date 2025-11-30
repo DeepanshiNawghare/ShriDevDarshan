@@ -1,8 +1,8 @@
-// src/components/sections/PujaOffcanvas.jsx
+// src/components/sections/puja/PujaOffcanvas.jsx
 import React, { useState, useMemo } from 'react';
 import { Share2, Search, Filter, X } from 'lucide-react';
-import { Card, Button, Badge, IconButton, Offcanvas } from '../ui';
-import PujaModal from './puja/PujaModal';
+import { Card, Button, Badge, IconButton, Offcanvas } from '../../ui';
+import PujaModal from './PujaModal';
 
 // Filter Options
 const categories = ['All Pujas', 'Health', 'Wealth', 'Peace', 'Protection', 'Success', 'Family'];

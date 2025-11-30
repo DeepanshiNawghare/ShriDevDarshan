@@ -6,7 +6,7 @@ import SubHeader from '../header/SubHeader';
 
 export default function MainLayout() {
     return (
-        <div className=''>
+        <div className='min-h-screen bg-background text-foreground'>
             <Header />
             <SubHeader />
             <main>

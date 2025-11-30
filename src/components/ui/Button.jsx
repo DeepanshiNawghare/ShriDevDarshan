@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 const variants = {
     primary: 'bg-gradient-to-r from-primary to-secondary text-white font-bold shadow-2xl hover:shadow-primary/60 transform hover:scale-105 transition-all duration-300',
     secondary: 'bg-gradient-to-r from-secondary to-orange-600 text-white font-bold shadow-2xl hover:shadow-secondary/60 transform hover:scale-105 transition-all duration-300',
-    ghost: 'bg-muted/60 hover:bg-muted transition font-medium',
-    outline: 'border border-border bg-transparent hover:bg-muted/60 transition font-medium',
+    ghost: 'bg-muted/60 hover:bg-muted text-foreground transition font-medium',
+    outline: 'border border-border bg-transparent hover:bg-muted/60 text-foreground transition font-medium',
 };
 
 const sizes = {

@@ -33,9 +33,9 @@ const positions = {
 };
 
 const variants = {
-    default: 'bg-white dark:bg-gray-900 border-primary/20',
-    glass: 'bg-white/90 dark:bg-gray-900/90 backdrop-blur-xl border-primary/10',
-    gradient: 'bg-gradient-to-br from-primary/5 to-secondary/5 border-primary/20',
+    default: 'bg-white dark:bg-card border-primary/20',
+    glass: 'bg-white/90 dark:bg-card/90 backdrop-blur-xl border-primary/10',
+    gradient: 'bg-gradient-to-br from-primary/5 to-secondary/5 dark:from-primary/10 dark:to-secondary/10 border-primary/20',
     solid: 'bg-card border-border',
 };
 
@@ -112,8 +112,8 @@ export default function Offcanvas({
                     ${className}
                 `.trim().replace(/\s+/g, ' ')}
                 role="dialog"
-                aria-modal="true"
-                aria-hidden={!isOpen}
+                aria-modal={isOpen}
+                inert={!isOpen || undefined}
                 {...props}
             >
                 {/* Close Button */}

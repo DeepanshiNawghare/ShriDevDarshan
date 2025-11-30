@@ -1,9 +1,9 @@
-// src/components/PujaSection.jsx
+// src/components/sections/puja/PujaSection.jsx
 import React, { useState } from 'react';
 import { Share2, ChevronRight } from 'lucide-react';
-import { Card, Button, Badge, IconButton } from '../ui';
+import { Card, Button, Badge, IconButton } from '../../ui';
 import PujaOffcanvas, { allPujas } from './PujaOffcanvas';
-import PujaModal from './puja/PujaModal';
+import PujaModal from './PujaModal';
 
 export default function PujaSection() {
     const [isOffcanvasOpen, setIsOffcanvasOpen] = useState(false);
@@ -45,7 +45,7 @@ export default function PujaSection() {
     };
 
     return (
-        <section className="py-12 lg:py-20 bg-gradient-to-b from-background to-orange-50/30">
+        <section className="py-12 lg:py-20 bg-gradient-to-b from-background to-orange-50/30 dark:to-orange-950/20">
             <div className="container mx-auto px-4">
 
                 {/* Section Header */}
@@ -151,3 +151,4 @@ export default function PujaSection() {
         </section>
     );
 }
+
