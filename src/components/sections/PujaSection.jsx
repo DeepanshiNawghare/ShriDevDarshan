@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { Share2, ChevronRight } from 'lucide-react';
 import { Card, Button, Badge, IconButton } from '../ui';
 import PujaOffcanvas, { allPujas } from './PujaOffcanvas';
-import PujaModal from './PujaModal';
+import PujaModal from './puja/PujaModal';
 
 export default function PujaSection() {
     const [isOffcanvasOpen, setIsOffcanvasOpen] = useState(false);

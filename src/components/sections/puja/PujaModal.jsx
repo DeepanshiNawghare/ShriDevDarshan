@@ -1,13 +1,12 @@
-// src/components/sections/PujaModal.jsx
 import React from 'react';
 import { Share2 } from 'lucide-react';
-import { Button, Badge, IconButton, Modal } from '../ui';
+import { Button, Badge, IconButton, Modal } from '../../ui';
 
 export default function PujaModal({ isOpen, onClose, puja }) {
     const handleShare = async (e) => {
         e?.stopPropagation();
         if (!puja) return;
-        
+
         const shareData = {
             title: puja.title,
             text: puja.desc,

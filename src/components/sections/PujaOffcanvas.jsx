@@ -2,7 +2,7 @@
 import React, { useState, useMemo } from 'react';
 import { Share2, Search, Filter, X } from 'lucide-react';
 import { Card, Button, Badge, IconButton, Offcanvas } from '../ui';
-import PujaModal from './PujaModal';
+import PujaModal from './puja/PujaModal';
 
 // Filter Options
 const categories = ['All Pujas', 'Health', 'Wealth', 'Peace', 'Protection', 'Success', 'Family'];
