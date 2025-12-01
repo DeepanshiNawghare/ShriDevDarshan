@@ -1,8 +1,31 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Share2 } from 'lucide-react';
 import { Button, Badge, IconButton, Modal } from '../../ui';
+import PujaBookingForm from './PujaBookingForm';
 
 export default function PujaModal({ isOpen, onClose, puja }) {
+    const [showBookingForm, setShowBookingForm] = useState(false);
+    const navigate = useNavigate();
+
+    const handleProceedToBook = () => {
+        setShowBookingForm(true);
+    };
+
+    const handleMoreDetails = () => {
+        onClose();
+        navigate(`/puja/${puja.id}`);
+    };
+
+    const handleBackToDetails = () => {
+        setShowBookingForm(false);
+    };
+
+    const handleCloseAll = () => {
+        setShowBookingForm(false);
+        onClose();
+    };
+
     const handleShare = async (e) => {
         e?.stopPropagation();
         if (!puja) return;
@@ -24,6 +47,18 @@ export default function PujaModal({ isOpen, onClose, puja }) {
             console.log('Share failed:', err);
         }
     };
+
+    // Show booking form when user clicks "Proceed to Book"
+    if (showBookingForm) {
+        return (
+            <PujaBookingForm
+                isOpen={isOpen}
+                onClose={handleCloseAll}
+                puja={puja}
+                onBack={handleBackToDetails}
+            />
+        );
+    }
 
     return (
         <Modal
@@ -127,12 +162,16 @@ export default function PujaModal({ isOpen, onClose, puja }) {
                     <Modal.Footer className="flex-col sm:flex-row gap-3">
                         <Button
                             variant="ghost"
-                            to={`/puja/${puja.id}`}
+                            onClick={handleMoreDetails}
                             className="w-full sm:w-full"
                         >
                             More Details
                         </Button>
-                        <Button variant="primary" className="w-full sm:w-full">
+                        <Button
+                            variant="primary"
+                            className="w-full sm:w-full"
+                            onClick={handleProceedToBook}
+                        >
                             Proceed to Book
                         </Button>
                     </Modal.Footer>

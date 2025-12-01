@@ -104,7 +104,7 @@ export default function Footer() {
                         <h3 className="text-lg font-bold text-primary mb-6">Download Our App</h3>
                         <div className="space-y-4">
                             <a
-                                href="https://play.google.com/store/apps/details?id=com.shridevdarshan"
+                                href="https://play.google.com/store/apps/details?id=com.fovtysolutions.devdarshan"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="block transform hover:scale-105 transition-all duration-300"

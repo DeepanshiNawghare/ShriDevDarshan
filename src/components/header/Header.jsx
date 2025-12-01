@@ -34,7 +34,7 @@ export default function Header() {
     useEffect(() => {
         const savedTheme = localStorage.getItem('theme');
         const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        
+
         if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
             setIsDarkMode(true);
             document.documentElement.classList.add('dark');
@@ -172,7 +172,7 @@ export default function Header() {
                         size="lg"
                         shape="rounded"
                     />
-                    
+
                     {/* Dark Mode Toggle for Mobile */}
                     <button
                         onClick={toggleDarkMode}
@@ -233,7 +233,7 @@ export default function Header() {
                     <h3 className="text-base font-bold text-primary mb-3">Download Our App</h3>
                     <div className="flex gap-4">
                         <a
-                            href="https://play.google.com/store/apps/details?id=com.shridevdarshan"
+                            href="https://play.google.com/store/apps/details?id=com.fovtysolutions.devdarshan"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="block transform hover:scale-105 transition-all duration-300"

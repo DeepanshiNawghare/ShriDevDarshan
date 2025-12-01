@@ -20,7 +20,7 @@ export default function Card({
     gradientBorder = 'none',
     hover = false,
     className = '',
-    padding = 'p-6 lg:p-8',
+    padding = 'p-4 md:p-6 lg:p-8',
     ...props
 }) {
     return (

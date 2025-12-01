@@ -1,12 +1,7 @@
 // src/components/SubHeader.jsx
 import React, { useState, useEffect } from 'react';
-import {
-    Home, Sun, Music, TicketCheck, Calendar,
-    Sparkles, Heart, Church, Clock, Gift, Users, Bell
-} from 'lucide-react';
 import { Link } from 'react-router-dom';
 
-import { IconButton } from '../ui';
 import PujaOffcanvas from '../sections/puja/PujaOffcanvas';
 
 export default function SubHeader() {
@@ -20,18 +15,19 @@ export default function SubHeader() {
     }, []);
 
     const categories = [
-        { name: 'Live Darshan', icon: Home, path: '/live-darshan' },
-        { name: 'Horoscope', icon: Sun, path: '/horoscope' },
-        { name: 'Aarti & Chalisa', icon: Music, path: '/aarti-chalisa' },
-        { name: 'Book Puja', icon: TicketCheck, action: () => setIsPujaOffcanvasOpen(true) },
-        { name: 'Panchang', icon: Calendar, path: '/panchang' },
-        { name: 'Festivals', icon: Sparkles, path: '/festivals' },
-        { name: 'Temples', icon: Church, path: '/temples' },
-        { name: 'Donation', icon: Heart, path: '/donate' },
-        { name: 'Aarti Timing', icon: Clock, path: '/aarti-timings' },
-        { name: 'Puja Shop', icon: Gift, path: '/shop' },
-        { name: 'Community', icon: Users, path: '/community' },
-        { name: 'Alerts', icon: Bell, path: '/notifications' },
+        { name: 'Book Puja', image: '/img/icons/pooja.png', action: () => setIsPujaOffcanvasOpen(true) },
+        { name: 'Panchang', image: '/img/icons/panchang.png', path: '/panchang' },
+        { name: 'Horoscope', image: '/img/icons/horoscope.png', path: '/horoscope' },
+        { name: 'Kundli', image: '/img/icons/kundli.png', path: '/kundli' },
+        { name: 'Matching', image: '/img/icons/matching.png', path: '/matching' },
+        { name: 'Festivals', image: '/img/icons/festival.png', path: '/festivals' },
+        { name: 'Chadhava', image: '/img/icons/chadhava.png', path: '/chadhava' },
+        { name: 'Prasad', image: '/img/icons/prasad.png', path: '/prasad' },
+        { name: 'Sahitya', image: '/img/icons/sahitya.png', path: '/sahitya' },
+        { name: 'Aarti & Chalisa', image: '/img/icons/aarti-chalisa.png', path: '/aarti-chalisa' },
+        { name: 'Temples', image: '/img/icons/temples.png', path: '/temples' },
+        { name: 'Live Darshan', image: '/img/icons/live-darshan.png', path: '/live-darshan' },
+        { name: 'Puja Shop', image: '/img/icons/puja-shop.png', path: '/shop' },
     ];
 
     return (
@@ -42,45 +38,43 @@ export default function SubHeader() {
                     <div className="overflow-x-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
 
                         <div className="flex">
-                            {categories.map((cat, i) => {
-                                const Icon = cat.icon;
-
-                                const iconElement = (
-                                    <IconButton
-                                        icon={Icon}
-                                        variant="primary"
-                                        size="lg"
-                                        shape="rounded"
-                                        className="group-hover:bg-primary/20 pointer-events-none"
-                                    />
-                                );
-
-                                const content = (
-                                    <>
-                                        <div className={`transition-all duration-300 overflow-hidden ${isScrolled ? 'h-0 opacity-0 mb-0' : 'h-16'}`}>
-                                            {iconElement}
-                                        </div>
-                                        <span className="text-xs font-semibold text-foreground/80 group-hover:text-primary text-center leading-tight">
-                                            {cat.name}
-                                        </span>
-                                    </>
-                                );
-
-                                return (
-                                    <div
-                                        key={i}
-                                        className="flex-shrink-0 w-1/4 md:w-1/6 px-3"
+                            {categories.map((cat, i) => (
+                                <div
+                                    key={i}
+                                    className="flex-shrink-0 w-1/3 md:w-1/6 lg:w-1/8 px-2"
+                                >
+                                    <Link
+                                        to={cat.path || '#'}
+                                        onClick={cat.action ? (e) => { e.preventDefault(); cat.action(); } : undefined}
+                                        className="flex flex-col items-center group"
                                     >
-                                        <Link
-                                            to={cat.path || '#'}
-                                            onClick={cat.action ? (e) => { e.preventDefault(); cat.action(); } : undefined}
-                                            className="flex flex-col items-center group"
-                                        >
-                                            {content}
-                                        </Link>
-                                    </div>
-                                );
-                            })}
+                                        {/* Unified background container for image + text */}
+                                        <div className={`
+                                            bg-gradient-to-br from-primary to-secondary rounded-2xl p-3 
+                                            hover:from-primary/70 hover:to-secondary/70
+                                            transition-all duration-300
+                                            flex flex-col items-center w-full
+                                            ${isScrolled ? 'py-2 px-3' : 'py-3 px-4'}
+                                        `}>
+                                            {/* Image container */}
+                                            <div className={`
+                                                transition-all duration-300 overflow-hidden
+                                                ${isScrolled ? 'h-0 w-0 opacity-0 mb-0' : 'h-10 w-10 mb-2'}
+                                            `}>
+                                                <img
+                                                    src={cat.image}
+                                                    alt={cat.name}
+                                                    className="w-full h-full object-contain"
+                                                />
+                                            </div>
+                                            {/* Text */}
+                                            <span className="text-xs font-semibold text-white text-center leading-tight whitespace-nowrap">
+                                                {cat.name}
+                                            </span>
+                                        </div>
+                                    </Link>
+                                </div>
+                            ))}
                         </div>
 
                     </div>

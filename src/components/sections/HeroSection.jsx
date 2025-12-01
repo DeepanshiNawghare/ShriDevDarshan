@@ -35,7 +35,7 @@ export default function HeroSection() {
                         <Card variant="gradient" padding="p-10 lg:p-16" className="mb-2 sm:mb-12">
                             <div className="text-sm font-black bg-gradient-to-r from-primary via-secondary to-orange-700 bg-clip-text text-transparent mb-2 flex items-center justify-center">
                                 {/* <span>जय श्री महाकाल</span> */}
-                                <img src="/img/shreedevdarshan.png" alt="Shri Dev Darshan" className="h-10 w-auto" />
+                                <img src="/img/jai-shree-mahakal.png" alt="Shri Dev Darshan" className="h-10 w-auto" />
                             </div>
 
                             <h2 className="text-3xl font-bold bg-gradient-to-r from-primary via-secondary to-orange-700 bg-clip-text text-transparent mb-2">
