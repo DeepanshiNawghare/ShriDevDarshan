@@ -15,7 +15,7 @@ export default function SubHeader() {
     }, []);
 
     const categories = [
-        { name: 'Book Puja', image: '/img/icons/pooja.png', action: () => setIsPujaOffcanvasOpen(true) },
+        { name: 'Book Puja', image: '/img/icons/puja.png', action: () => setIsPujaOffcanvasOpen(true) },
         { name: 'Panchang', image: '/img/icons/panchang.png', path: '/panchang' },
         { name: 'Horoscope', image: '/img/icons/horoscope.png', path: '/horoscope' },
         { name: 'Kundli', image: '/img/icons/kundli.png', path: '/kundli' },

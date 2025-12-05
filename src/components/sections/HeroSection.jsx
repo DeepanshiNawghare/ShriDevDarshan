@@ -11,9 +11,9 @@ import 'swiper/css/pagination';
 import { Button, Card, Badge, IconButton } from '../ui';
 import PujaOffcanvas from './puja/PujaOffcanvas';
 
-const poojaSlides = [
-    { img: '/img/puja/mangalnath.png', title: 'Mangal Bhat Pooja', sub: 'Mangalik Dosha' },
-    { img: '/img/puja/kaalsarpdosh.png', title: 'Kaalsarpdosh Pooja', sub: 'Kaalsarpdosh Dosha' },
+const pujaSlides = [
+    { img: '/img/puja/mangalnath.png', title: 'Mangal Bhat Puja', sub: 'Mangalik Dosha' },
+    { img: '/img/puja/kaalsarpdosh.png', title: 'Kaalsarpdosh Puja', sub: 'Kaalsarpdosh Dosha' },
     { img: '/img/puja/rudrabhishek.jpg', title: 'Rudrabhishek Puja', sub: 'Rudrabhishek Puja' },
 ];
 
@@ -43,7 +43,7 @@ export default function HeroSection() {
                             </h2>
 
                             <p className="text-lg lg:text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
-                                From pooja bookings to daily astrology, explore everything spiritual and sacred in one beautifully crafted platform.
+                                From puja bookings to daily astrology, explore everything spiritual and sacred in one beautifully crafted platform.
                             </p>
 
                             <Button to="/" variant="primary" size="md" className="mt-4">
@@ -70,7 +70,7 @@ export default function HeroSection() {
                     <Card variant="default" gradientBorder="none" className="h-full">
                         <div className="flex flex-col h-full justify-between">
                             <Card.Header>
-                                <Card.Title variant="primary">Book Your Pooja</Card.Title>
+                                <Card.Title variant="primary">Book Your Puja</Card.Title>
 
                                 <div className="relative my-5">
                                     <Swiper
@@ -84,12 +84,12 @@ export default function HeroSection() {
                                             bulletActiveClass: '!w-8 !h-2 !bg-white !rounded-full',
                                         }}
                                         navigation={{
-                                            prevEl: '.hero-prev-pooja',
-                                            nextEl: '.hero-next-pooja',
+                                            prevEl: '.hero-prev-puja',
+                                            nextEl: '.hero-next-puja',
                                         }}
                                         className="h-48 sm:h-56 md:h-60 rounded-2xl overflow-hidden shadow-2xl"
                                     >
-                                        {poojaSlides.map((slide, i) => (
+                                        {pujaSlides.map((slide, i) => (
                                             <SwiperSlide key={i}>
                                                 <div className="relative h-full">
                                                     <img src={slide.img} className="w-full h-full object-cover" />
@@ -107,18 +107,18 @@ export default function HeroSection() {
                                         icon={ChevronLeft}
                                         variant="glass"
                                         size="md"
-                                        className="hero-prev-pooja absolute left-3 top-1/2 -translate-y-1/2 z-10"
+                                        className="hero-prev-puja absolute left-3 top-1/2 -translate-y-1/2 z-10"
                                     />
                                     <IconButton
                                         icon={ChevronRight}
                                         variant="glass"
                                         size="md"
-                                        className="hero-next-pooja absolute right-3 top-1/2 -translate-y-1/2 z-10"
+                                        className="hero-next-puja absolute right-3 top-1/2 -translate-y-1/2 z-10"
                                     />
                                 </div>
 
                                 <Card.Description className="mt-3">
-                                    Authentic live pooja with prasad delivery from 108+ temples
+                                    Authentic live puja with prasad delivery from 108+ temples
                                 </Card.Description>
                             </Card.Header>
 
@@ -129,7 +129,7 @@ export default function HeroSection() {
                                 icon={TicketCheck}
                                 fullWidth
                             >
-                                Book Pooja Now
+                                Book Puja Now
                             </Button>
                         </div>
                     </Card>

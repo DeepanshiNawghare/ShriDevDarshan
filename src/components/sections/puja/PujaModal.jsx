@@ -13,8 +13,9 @@ export default function PujaModal({ isOpen, onClose, puja }) {
     };
 
     const handleMoreDetails = () => {
-        onClose();
+        // Navigate first, then close modal to prevent mobile interruption
         navigate(`/puja/${puja.id}`);
+        onClose();
     };
 
     const handleBackToDetails = () => {
@@ -161,15 +162,17 @@ export default function PujaModal({ isOpen, onClose, puja }) {
 
                     <Modal.Footer className="flex-col sm:flex-row gap-3">
                         <Button
+                            type="button"
                             variant="ghost"
                             onClick={handleMoreDetails}
-                            className="w-full sm:w-full"
+                            className="w-full sm:w-auto"
                         >
                             More Details
                         </Button>
                         <Button
+                            type="button"
                             variant="primary"
-                            className="w-full sm:w-full"
+                            className="w-full sm:w-auto"
                             onClick={handleProceedToBook}
                         >
                             Proceed to Book

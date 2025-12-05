@@ -179,4 +179,72 @@ input[type="number"]::-webkit-inner-spin-button {
 
 input[type="number"] {
   -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+/* ============================================
+   CUSTOM SCROLLBAR STYLING
+   Sleek scrollbar matching theme colors
+   Applied to ALL scrollable elements
+   ============================================ */
+
+/* Firefox - all elements */
+*,
+html,
+body {
+  scrollbar-width: thin;
+  scrollbar-color: var(--primary) var(--muted);
+}
+
+/* Webkit browsers (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--muted);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--primary), var(--secondary));
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, var(--secondary), var(--primary));
+}
+
+::-webkit-scrollbar-corner {
+  background: var(--muted);
+}
+
+/* ============================================
+   HIDDEN SCROLLBAR OVERRIDES
+   Ensures scrollbar-hide elements stay hidden
+   Uses !important to override global styles
+   ============================================ */
+
+/* Hide scrollbar - Firefox */
+.scrollbar-hide,
+.scrollbar-hide *,
+[class*="\[scrollbar-width\:none\]"],
+[class*="\[-ms-overflow-style\:none\]"],
+[class*="\[&\:\:-webkit-scrollbar\]\:hidden"] {
+  scrollbar-width: none !important;
+  scrollbar-color: transparent transparent !important;
+  -ms-overflow-style: none !important;
+}
+
+/* Hide scrollbar - Webkit (Chrome, Safari, Edge) */
+.scrollbar-hide::-webkit-scrollbar,
+.scrollbar-hide *::-webkit-scrollbar,
+[class*="\[scrollbar-width\:none\]"]::-webkit-scrollbar,
+[class*="\[-ms-overflow-style\:none\]"]::-webkit-scrollbar,
+[class*="\[&\:\:-webkit-scrollbar\]\:hidden"]::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+  background: transparent !important;
 }

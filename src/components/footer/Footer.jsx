@@ -1,5 +1,5 @@
 import React from 'react';
-import { Facebook, Instagram, Twitter, Mail, MapPin, Phone } from 'lucide-react';
+import { Facebook, Instagram, Twitter, Youtube, Mail, MapPin, Phone } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import logo from '../../assets/img/logo.png';
 import playstore from '../../assets/img/playstore.svg';
@@ -12,7 +12,7 @@ export default function Footer() {
         { name: 'Home', path: '/' },
         { name: 'Live Darshan', path: '/live-darshan' },
         { name: 'All Temples', path: '/temples' },
-        { name: 'Daily Pooja', path: '/daily-pooja' },
+        { name: 'Daily Puja', path: '/daily-puja' },
         { name: 'Aarti Timings', path: '/aarti-timings' },
         { name: 'Donate', path: '/donate' },
         { name: 'Contact Us', path: '/contact' },
@@ -25,9 +25,10 @@ export default function Footer() {
     ];
 
     const socialLinks = [
-        { platform: 'facebook', username: 'shridevdarshan', icon: Facebook },
-        { platform: 'instagram', username: 'shridevdarshan', icon: Instagram },
-        { platform: 'twitter', username: 'shridevdarshan', icon: Twitter },
+        { platform: 'instagram', href: 'https://www.instagram.com/shri_dev_darshan?igsh=MTFjY2NzbmltMmxueQ==', icon: Instagram },
+        { platform: 'facebook', href: 'https://www.facebook.com/profile.php?id=61578182453786', icon: Facebook },
+        { platform: 'twitter', href: 'https://x.com/ShriDevDarshan', icon: Twitter },
+        { platform: 'youtube', href: 'https://youtube.com/@shridevdarshan6?si=IlbvOBT1Rd8FG1oT', icon: Youtube },
     ];
 
     return (
@@ -39,9 +40,11 @@ export default function Footer() {
 
                     {/* Brand Section */}
                     <div className="space-y-6">
-                        <img src={logo} alt="ShriDevDarshan" className="w-40 h-auto" />
+                        <Link to="/">
+                            <img src={logo} alt="ShriDevDarshan" className="w-40 h-auto" />
+                        </Link>
                         <p className="text-sm leading-relaxed text-[#faf6f1]/80 max-w-xs">
-                            Experience divine live darshan, daily poojas, and spiritual connection with temples across India — anytime, anywhere.
+                            Experience divine live darshan, daily pujas, and spiritual connection with temples across India — anytime, anywhere.
                         </p>
 
                         {/* Social Icons */}
@@ -50,7 +53,7 @@ export default function Footer() {
                                 <SocialIcon
                                     key={social.platform}
                                     platform={social.platform}
-                                    username={social.username}
+                                    href={social.href}
                                     icon={social.icon}
                                 />
                             ))}
@@ -81,20 +84,20 @@ export default function Footer() {
                         <div className="space-y-5 text-sm">
                             <div className="flex items-center gap-3">
                                 <Phone size={18} className="text-primary" />
-                                <span className="text-[#faf6f1]/70">+91 98765 43210</span>
+                                <a href="tel:+919753978917" className="text-[#faf6f1]/70">+91 9753978917 ,</a>
+                                <a href="tel:+918770737716" className="text-[#faf6f1]/70">+91 8770737716</a>
                             </div>
                             <div className="flex items-center gap-3">
                                 <Mail size={18} className="text-primary" />
-                                <a href="mailto:support@shridevdarshan.com" className="text-[#faf6f1]/70 hover:text-primary transition">
-                                    support@shridevdarshan.com
+                                <a href="mailto:shridevdarshan6@gmail.com" className="text-[#faf6f1]/70 hover:text-primary transition">
+                                    shridevdarshan6@gmail.com
                                 </a>
                             </div>
                             <div className="flex items-start gap-3">
                                 <MapPin size={18} className="text-primary mt-0.5" />
-                                <span className="text-[#faf6f1]/70 leading-tight">
-                                    123 Temple Street,<br />
-                                    Mumbai, Maharashtra 400001
-                                </span>
+                                <a href="https://maps.app.goo.gl/GQXM8YU64qQAmZoz8" target="_blank" rel="noopener noreferrer" className="text-[#faf6f1]/70 leading-tight">
+                                    41/2, Agar Rd, Rajendra Nagar, Ujjain, Madhya Pradesh 456001
+                                </a>
                             </div>
                         </div>
                     </div>

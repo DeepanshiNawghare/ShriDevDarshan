@@ -22,8 +22,8 @@ const allPujas = [
     },
     {
         id: 2,
-        title: "Satyanarayan Pooja",
-        desc: "Monthly pooja for prosperity, happiness & family well-being",
+        title: "Satyanarayan Puja",
+        desc: "Monthly puja for prosperity, happiness & family well-being",
         image: "/img/puja/satyanarayan.jpg",
         badge: "POPULAR",
         category: "Family",
